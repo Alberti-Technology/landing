@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav';
+import HeroVideoSequence from '../components/HeroVideoSequence';
+import TeamSlider from '../components/TeamSlider';
+import ContactForm from '../components/ContactForm';
+
+const industries = [
+  ["Metalurgia", "⌁", "Metalografía, inclusiones, grano y control de procesos"],
+  ["Metalmecánica", "⚙", "Plegado, estampado, tornillería y acabado superficial"],
+  ["Automotriz", "◇", "Ensamble, presencia de componentes y defectos de pieza"],
+  ["Minería", "◆", "Monitoreo de operación, seguridad y clasificación visual"],
+  ["Petróleo y Gas", "◉", "Inspección de activos, soldaduras, fisuras y corrosión"],
+  ["Construcción", "▰", "Avance de tareas, trazabilidad y cumplimiento de procesos"],
+  ["Plásticos", "⬡", "Defectos de moldeo, geometría, color y packaging"],
+  ["Vidrio", "◫", "Fisuras, rayas, bordes, inclusiones y control dimensional"],
+  ["Textil", "≋", "Defectos de trama, color, patrones y calidad continua"],
+  ["Cerámica", "◈", "Grietas, poros, esmalte, geometría y acabado"],
+  ["Madera", "▥", "Nudos, fisuras, superficie y clasificación automática"],
+  ["Logística", "⇄", "Conteo, tracking, flujo de cargas y verificación de despacho"],
+];
+
+const visionCapabilities = [
+  ["camera", "Monitoreo de producción", "Un punto de control visual automatizado que complementa la muestra de calibre y registra cada pieza mediante imágenes."],
+  ["shield", "Control de calidad", "Detecta grietas, fisuras, rayas, rebabas, defectos superficiales, profundidad y geometría en la línea."],
+  ["trace", "Trazabilidad visual", "Responde con evidencia de pieza, lote a lote y unidad a unidad, disponible desde un dashboard centralizado."],
+  ["insight", "Analítica y reporting", "Conozca cuántas piezas produjo la línea en tiempo real, sin esperar al cierre del turno."],
+  ["speed", "Paradas y alertas", "Sepa cuándo se detuvo una máquina, cuánto tiempo y qué ocurría. Reciba señales pass/reject antes de la reunión."],
+  ["ai", "Inspector de IA", "Supervisión continua, soporte prioritario y verificación de tareas contra la hoja de proceso definida."],
+];
+
+const benefits = [
+  ["trace", "Trazabilidad completa", "Evidencia visual pieza a pieza, lote a lote y unidad a unidad."],
+  ["eye", "Monitoreo en tiempo real", "Visibilidad instantánea del estado de las operaciones y las máquinas."],
+  ["shield", "Calidad estandarizada", "Defectos, desvíos y rechazos con criterios objetivos y repetibles."],
+  ["speed", "Productividad medible", "Tiempos de ciclo, demoras, cuellos de botella y tiempo improductivo."],
+  ["insight", "Decisiones basadas en datos", "KPIs actualizados para actuar durante el turno, no cuando ya terminó."],
+  ["scale", "Integración y escala", "Conexión con ERP, MES o BI para múltiples líneas, sectores o plantas."],
+];
+
+const paths: Record<string, string> = {
+  camera: '<path d="M4 7h3l1.4-2h7.2L17 7h3v11H4z"/><circle cx="12" cy="12.5" r="3.5"/>',
+  data: '<ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v6c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 11v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+  ai: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M18 9h4M2 15h4M18 15h4M9.5 14.5l2.5-5 2.5 5M10.5 12.5h3"/>',
+  chart: '<path d="M4 19V5M4 19h16"/><path d="M7 15l3-4 3 2 5-7"/>',
+  decision: '<circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16.5 8"/>',
+  trace: '<path d="M5 4h14v16H5zM8 8h8M8 12h5M8 16h7"/><path d="M3 7V2h5M21 17v5h-5"/>',
+  eye: '<path d="M2 12s3.7-6 10-6 10 6 10 6-3.7 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  shield: '<path d="M12 2l8 3v6c0 5.2-3.4 9-8 11-4.6-2-8-5.8-8-11V5z"/><path d="M8 12l2.5 2.5L16 9"/>',
+  speed: '<path d="M4 18a9 9 0 1116 0M12 13l4-4"/><path d="M6 15H3M8 10L6 8M12 8V5M16 10l2-2"/>',
+  insight: '<path d="M4 19V5M4 19h16M7 15l3-4 3 2 5-7"/><circle cx="18" cy="6" r="1.5"/>',
+  scale: '<rect x="3" y="4" width="7" height="6" rx="1"/><rect x="14" y="14" width="7" height="6" rx="1"/><path d="M10 7h4a3 3 0 013 3v4M14 17h-4a3 3 0 01-3-3v-4"/>',
+};
+---
+
+<Layout title="Alberti Technology | IA para procesos industriales" description="Inteligencia artificial aplicada a materiales y procesos industriales.">
+  <main>
+    <Nav client:load />
+
+    <section class="hero" id="inicio">
+      <div class="heroGrid" aria-hidden="true"></div>
+      <div class="heroCopy">
+        <div class="eyebrow"><span></span> Materiales · Procesos · Industria 4.0</div>
+        <h1>Transforme datos en <em>decisiones.</em></h1>
+        <p>IA para monitorear procesos, detectar desvíos y optimizar la operación en tiempo real.</p>
+        <div class="heroIdentity">Inteligencia artificial aplicada a materiales y procesos industriales.</div>
+        <div class="heroActions">
+          <button class="primary" onclick="document.getElementById('contacto')?.scrollIntoView({behavior: 'smooth'})">Conversemos sobre su proceso <span>↗</span></button>
+          <button class="textLink" onclick="document.getElementById('soluciones')?.scrollIntoView({behavior: 'smooth'})">Explorar soluciones <span>↓</span></button>
+        </div>
+      </div>
+      <div class="heroVisual" aria-hidden="true">
+        <div class="scanFrame videoFrame">
+          <HeroVideoSequence client:load />
+          <div class="videoShade"></div>
+        </div>
+      </div>
+      <div class="heroLocation">
+        <img src="/flag-argentina.webp" alt="" />
+        <span>Buenos Aires, Argentina</span>
+      </div>
+    </section>
+
+    <section class="proofStrip">
+      <span>VISIÓN ARTIFICIAL</span><i></i> <span>METALURGIA CON IA</span><i></i> <span>INDUSTRIA + LABORATORIOS</span><i></i> <span>SOLUCIONES END-TO-END</span>
+    </section>
+
+    <section class="section solutions" id="soluciones">
+      <div class="sectionIntro">
+        <div><span class="index">01 — SOLUCIONES</span><h2>Dos capacidades.<br /><em>Un mismo objetivo.</em></h2></div>
+        <p>Diseñamos sistemas a medida que conectan el mundo físico de su planta con información accionable.</p>
+      </div>
+      <div class="solutionGrid">
+        <article class="solutionCard dark">
+          <div class="cardNumber">01</div>
+          <div class="cardIcon"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths.camera} /></div>
+          <h3>Visión Artificial<br />Industrial</h3>
+          <p>Control visual automatizado para líneas productivas. Reconocemos objetos y también secuencias de tareas para comprobar que cada operación se ajuste a su hoja de proceso.</p>
+          <ul>
+            <li>Control de calidad y defectos</li><li>Monitoreo de producción</li>
+            <li>Verificación de tareas y procedimientos</li><li>Trazabilidad y evidencia visual</li>
+          </ul>
+          <button onclick="document.getElementById('contacto')?.scrollIntoView({behavior: 'smooth'})">Conocer la solución <span>↗</span></button>
+          <div class="cardTrace"></div>
+        </article>
+        <article class="solutionCard light">
+          <div class="cardNumber">02</div>
+          <div class="cardIcon"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths.ai} /></div>
+          <h3>Metalurgia<br />con IA</h3>
+          <p>Plataforma de análisis microestructural automatizado para convertir metalografías en resultados reproducibles.</p>
+          <ul>
+            <li>Tamaño de grano · ASTM E112</li><li>Segmentación de límites de grano</li>
+            <li>Fases, inclusiones y porosidad</li><li>Defectos, soldaduras y tratamientos</li>
+          </ul>
+          <button onclick="document.getElementById('contacto')?.scrollIntoView({behavior: 'smooth'})">Conocer la plataforma <span>↗</span></button>
+          <div class="microDots"></div>
+        </article>
+      </div>
+      <div class="solutionDetails">
+        <section class="visionStage">
+          <div class="stageHeader">
+            <div><span class="stageNumber">01 / 02</span><span class="detailTag">VISIÓN ARTIFICIAL INDUSTRIAL</span><h3>Objetos, tareas y procesos.<br /><em>Una visión completa de su planta.</em></h3></div>
+            <p>Nuestros sistemas analizan piezas y también el inicio y fin de las tareas, la interacción entre operarios, herramientas y materiales, y el cumplimiento de la hoja de proceso.</p>
+          </div>
+          <div class="visionFeatureGrid">
+            {visionCapabilities.map((item, index) => (
+              <article>
+                <span class="featureIndex">{String(index + 1).padStart(2, "0")}</span>
+                <div class="featureIcon"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths[item[0]]} /></div>
+                <h4>{item[1]}</h4><p>{item[2]}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="processHead">
+        <span class="index">02 — CÓMO FUNCIONA</span>
+        <h2>De imágenes a decisiones que<br /><em>ahorran dinero y mejoran procesos.</em></h2>
+      </div>
+      <div class="processFlow">
+        {[
+          ["camera","01","Captura","Cámaras y sensores"],
+          ["data","02","Datos","Conversión y estructura"],
+          ["ai","03","Inteligencia","Modelos de IA"],
+          ["chart","04","Visualización","Dashboards y KPIs"],
+          ["decision","05","Acción","Decisiones y asistencia"],
+        ].map((p, i) => (
+          <div class="processStep">
+            <span class="stepNo">{p[1]}</span><div class="processIcon"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths[p[0]]} /></div>
+            <h3>{p[2]}</h3><p>{p[3]}</p>{i < 4 && <i class="connector">→</i>}
+          </div>
+        ))}
+      </div>
+      <div class="realtime"><span class="pulse"></span> PROCESAMIENTO EN TIEMPO REAL · RESPUESTA Y SOPORTE PRIORITARIO</div>
+    </section>
+
+    <section class="section benefits">
+      <div class="sectionIntro">
+        <div><span class="index">03 — IMPACTO</span><h2>Comience a medir con IA sus procesos y aumente su <em>productividad y trazabilidad.</em></h2></div>
+        <p>Resultados concretos para equipos de producción, calidad, mantenimiento y dirección.</p>
+      </div>
+      <div class="benefitGrid">
+        {benefits.map((b, i) => (
+          <article><span class="benefitNo">0{i+1}</span><div class="benefitIcon"><svg viewBox="0 0 24 24" aria-hidden="true" set:html={paths[b[0]]} /></div><h3>{b[1]}</h3><p>{b[2]}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <section class="industries" id="industrias">
+      <div class="industryTitle">
+        <span class="index">04 — INDUSTRIAS</span>
+        <h2>Industria y laboratorios.<br /><em>Múltiples entornos.</em></h2>
+        <p>Adaptamos modelos, cámaras, mediciones y flujos de información a la realidad de cada operación.</p>
+      </div>
+      <div class="industryGrid">
+        {industries.map((item, i) => (
+          <div class="industryItem"><b>{item[1]}</b><span>{item[0]}</span><p>{item[2]}</p><small>{String(i+1).padStart(2,"0")}</small></div>
+        ))}
+      </div>
+    </section>
+
+    <section class="partners section" id="socios">
+      <div class="partnerCopy">
+        <span class="index">05 — ALIANZAS ESTRATÉGICAS</span>
+        <h2>Ciencia, industria<br />y tecnología.<br /><em>En colaboración.</em></h2>
+        <p>Construimos vínculos con instituciones de referencia para desarrollar soluciones con fundamento técnico y aplicación real.</p>
+      </div>
+      <div class="partnerLogos">
+        <article><div class="undavMark">UN<br />DAV</div><div><h3>Universidad Nacional<br />de Avellaneda</h3><p>Vinculación tecnológica · I+D</p></div></article>
+        <article><div class="cneaMark">CNEA</div><div><h3>Comisión Nacional<br />de Energía Atómica</h3><p>Investigación · Validación</p></div></article>
+      </div>
+    </section>
+
+    <section class="about section" id="acerca">
+      <div class="aboutLead">
+        <span class="index">06 — ACERCA DE</span>
+        <h2>Especialistas en<br /><em>materiales y metalurgia.</em></h2>
+      </div>
+      <div class="aboutBody">
+        <p>Alberti Technology desarrolla soluciones de inteligencia artificial y visión por computadora para transformar operaciones industriales y análisis de materiales en procesos medibles, trazables y escalables.</p>
+        <p>Combinamos conocimiento metalúrgico, ingeniería de software y aprendizaje automático para entregar soluciones end-to-end: desde cámaras e infraestructura hasta modelos de IA, plataformas, reportes y soporte.</p>
+        <div class="aboutStats"><div><b>END-TO-END</b><span>Implementación integral</span></div><div><b>IA + INDUSTRIA</b><span>Conocimiento aplicado</span></div><div><b>A MEDIDA</b><span>Sobre su proceso real</span></div></div>
+      </div>
+    </section>
+
+    <section class="metallurgyStage metallurgyAfterAbout">
+      <div class="stageHeader">
+        <div><span class="stageNumber">02 / 02</span><span class="detailTag">METALOGRAFÍA + INTELIGENCIA ARTIFICIAL</span><h3>Plataforma de análisis<br /><em>microestructural automatizado.</em></h3></div>
+        <p>Especialistas en materiales y metalurgia. Trabajamos con industrias y laboratorios para convertir micrografías en mediciones objetivas, estadísticas trazables y reportes técnicos reproducibles.</p>
+      </div>
+      <div class="metallurgyBody">
+        <div class="astmGrid">
+          <div><b>ASTM E112</b><span>Tamaño de grano por métodos de interceptos y análisis planimétrico.</span></div>
+          <div><b>ASTM E45</b><span>Clasificación y cuantificación de inclusiones no metálicas en aceros.</span></div>
+          <div><b>ASTM E1245</b><span>Contenido de inclusiones o constituyentes de segunda fase por análisis automático.</span></div>
+          <div><b>ASTM E562</b><span>Determinación de fracción volumétrica mediante conteo sistemático de puntos.</span></div>
+        </div>
+        
+        <div class="videoWrap">
+          <video
+            src="/metalografia.mp4"
+            title="Demostración de la plataforma metalográfica"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+          <div class="videoLabel"><span class="pulse"></span> PLATAFORMA DE METALOGRAFÍA CON IA</div>
+        </div>
+      </div>
+    </section>
+
+    <TeamSlider client:visible />
+
+    <ContactForm client:visible />
+
+    <footer>
+      <div class="footerMain">
+        <div><div class="footerBrand">
+          <img src="/logos/logo_white.svg" alt="" /><span><b>Alberti</b> Technology</span>
+        </div><p>Inteligencia artificial aplicada a materiales y procesos industriales.</p></div>
+        <div class="footerColumn"><b>NAVEGACIÓN</b><button onclick="document.getElementById('soluciones')?.scrollIntoView({behavior: 'smooth'})">Soluciones</button><button onclick="document.getElementById('industrias')?.scrollIntoView({behavior: 'smooth'})">Industrias</button><button onclick="document.getElementById('socios')?.scrollIntoView({behavior: 'smooth'})">Nuestros Socios</button><button onclick="document.getElementById('acerca')?.scrollIntoView({behavior: 'smooth'})">Acerca de</button></div>
+        <div class="footerColumn"><b>REDES SOCIALES</b><a href="https://www.linkedin.com/company/alberti-technology/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.instagram.com/albertitechnology/" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+        <a class="arca" href="http://qr.afip.gob.ar/?qr=GxP9fzm8w5vgyuP3JocOFg,," target="_blank" rel="noreferrer">
+          <img src="/arca-qr.png" alt="Código QR de ARCA" />
+          <span>Información fiscal<br /><b>ARCA ↗</b></span>
+        </a>
+      </div>
+      <small>© 2026 ALBERTI TECHNOLOGY <span>Buenos Aires, Argentina</span></small>
+    </footer>
+  </main>
+  
+  <script>
+    const onScroll = () => document.body.classList.toggle("scrolled", window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  </script>
+</Layout>

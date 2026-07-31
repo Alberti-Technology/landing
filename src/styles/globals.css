@@ -1,0 +1,558 @@
+
+
+:root{--navy:#04253b;--blue:#1e80bc;--ink:#061a27;--mist:#eef5f8;--line:#c8d8df;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--navy);font-family:'Geist Variable', sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}h1,h2,h3,p{margin:0}em{font-style:normal;color:var(--blue)}.index{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--blue);margin-bottom:28px}
+.nav{height:78px;position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,30px);border-bottom:1px solid rgba(255,255,255,.18);transition:.3s}.scrolled .nav{height:66px;background:rgba(4,37,59,.96);backdrop-filter:blur(12px)}.brand,.footerBrand{display:flex;align-items:center;gap:11px;color:white;background:none;border:0}.brand img,.footerBrand img{width:34px;height:42px;object-fit:cover;object-position:left;filter:brightness(0) invert(1)}.brand span,.footerBrand span{font-size:18px;letter-spacing:-.03em}.brand span b,.footerBrand span b{display:block}.navLinks{display:flex;align-items:center;gap:34px}.navLinks button,.footerLinks button{color:white;background:none;border:0;font-size:13px}.navCta{border:1px solid rgba(255,255,255,.55)!important;padding:12px 16px!important}.navCta span{margin-left:16px;color:#6fd2ff}.menuButton{display:none}
+.hero{min-height:760px;height:100vh;position:relative;overflow:hidden;background:var(--navy);color:white;padding:150px max(7vw,36px) 70px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center}.heroGrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(90deg,black,transparent 72%)}.hero:after{content:"";position:absolute;width:580px;height:580px;border:1px solid rgba(30,128,188,.35);border-radius:50%;right:-180px;top:90px;box-shadow:0 0 0 90px rgba(30,128,188,.05),0 0 0 190px rgba(30,128,188,.035)}.heroCopy{z-index:2;max-width:720px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;margin-bottom:30px}.eyebrow span{display:inline-block;width:30px;height:1px;background:#59c1f0;margin:0 12px 3px 0}.hero h1{font-size:clamp(52px,5.9vw,88px);line-height:.95;letter-spacing:-.065em;font-weight:600}.hero p{font-size:18px;line-height:1.6;color:#c5d6df;max-width:590px;margin-top:34px}.heroActions{display:flex;align-items:center;gap:30px;margin-top:42px}.primary{padding:17px 21px;background:var(--blue);color:white;border:1px solid var(--blue);font-weight:700;font-size:13px}.primary span{margin-left:24px}.primary:hover{background:#2c9bdc}.textLink{background:none;border:0;color:white;font-size:13px;border-bottom:1px solid #527185;padding:15px 0}.textLink span{margin-left:14px;color:#6fd2ff}.heroVisual{z-index:2;padding-left:8%;}.scanFrame{height:460px;position:relative;border:1px solid rgba(112,205,248,.5);background:linear-gradient(135deg,rgba(30,128,188,.13),rgba(1,14,23,.8));overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.25)}.scanTop{display:flex;justify-content:space-between;padding:15px 18px;font:10px 'Geist Mono Variable', monospace;letter-spacing:.12em;color:#7ed1f7;border-bottom:1px solid rgba(112,205,248,.25)}.part{position:absolute;background:linear-gradient(145deg,#2f576a,#102f3e);border:1px solid #567b8b;transform:skewY(-9deg)}.part1{width:130px;height:180px;left:12%;top:28%}.part2{width:150px;height:120px;left:38%;top:22%}.part3{width:135px;height:165px;right:8%;top:34%}.focusBox{position:absolute;width:175px;height:190px;left:34%;top:24%;border:2px solid #58c7fa;box-shadow:inset 0 0 30px rgba(30,128,188,.2)}.focusBox:before,.focusBox:after{content:"";position:absolute;background:#58c7fa}.focusBox:before{height:1px;width:240px;left:-34px;top:50%}.focusBox:after{width:1px;height:240px;top:-25px;left:50%}.focusBox small{position:absolute;top:-22px;font:9px 'Geist Mono Variable', monospace;color:#8bddff}.scanLine{position:absolute;left:0;right:0;height:2px;background:#5ed2ff;box-shadow:0 0 18px #5ed2ff;animation:scan 4s ease-in-out infinite}.metrics{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(2,21,32,.9);border-top:1px solid rgba(112,205,248,.25)}.metrics div{padding:14px;border-right:1px solid rgba(112,205,248,.2)}.metrics small{display:block;font:8px 'Geist Mono Variable', monospace;color:#7497a8;margin-bottom:6px}.metrics b{font:11px 'Geist Mono Variable', monospace;color:#74d8a0}.heroFoot{position:absolute;bottom:28px;left:max(7vw,36px);right:max(7vw,36px);display:flex;justify-content:space-between;color:#688697;font:9px 'Geist Mono Variable', monospace;letter-spacing:.15em;z-index:3}@keyframes scan{0%,100%{top:18%}50%{top:74%}}
+.proofStrip{height:68px;display:flex;align-items:center;justify-content:center;gap:28px;border-bottom:1px solid var(--line);font-size:10px;font-weight:700;letter-spacing:.2em;color:#5e7684}.proofStrip i{width:4px;height:4px;background:var(--blue);border-radius:50%}.section{padding:120px max(7vw,36px)}.sectionIntro{display:grid;grid-template-columns:1.4fr .6fr;align-items:end;margin-bottom:60px}.sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2{font-size:clamp(40px,4vw,64px);line-height:1.02;letter-spacing:-.055em}.sectionIntro>p,.industryTitle>p,.partnerCopy>p{color:#607582;font-size:16px;line-height:1.65;max-width:440px}.solutionGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.solutionCard{min-height:580px;padding:54px;position:relative;overflow:hidden}.solutionCard.dark{background:var(--navy);color:white}.solutionCard.light{background:var(--mist);color:var(--navy)}.cardNumber{position:absolute;right:28px;top:26px;font:10px 'Geist Mono Variable', monospace;color:#7893a1}.cardIcon{width:50px;height:50px;border:1px solid currentColor;display:grid;place-items:center;margin-bottom:60px}.cardIcon svg,.processIcon svg{width:24px;fill:none;stroke:currentColor;stroke-width:1.4}.solutionCard h3{font-size:42px;line-height:1.05;letter-spacing:-.045em}.solutionCard>p{font-size:15px;line-height:1.7;max-width:460px;color:#9eb4c0;margin:24px 0}.light>p{color:#536c79}.solutionCard ul{list-style:none;margin:30px 0 40px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:12px;position:relative;z-index:2}.solutionCard li:before{content:"—";color:var(--blue);margin-right:8px}.solutionCard button{position:absolute;left:54px;bottom:48px;border:0;border-bottom:1px solid currentColor;background:none;color:inherit;padding:10px 0;font-size:12px}.solutionCard button span{margin-left:18px;color:var(--blue)}.cardTrace{position:absolute;width:300px;height:300px;border:1px solid rgba(30,128,188,.3);border-radius:50%;right:-120px;bottom:-130px;box-shadow:0 0 0 55px rgba(30,128,188,.05),0 0 0 110px rgba(30,128,188,.03)}.microDots{position:absolute;right:35px;bottom:20px;width:230px;height:140px;opacity:.16;background-image:radial-gradient(var(--blue) 2px,transparent 2px);background-size:16px 16px;transform:rotate(-12deg)}
+.process{background:#071d2a;color:white;padding:115px max(7vw,36px)}.processHead{text-align:center}.processHead .index{color:#70c9f2}.processHead h2{max-width:900px;margin:auto}.processFlow{display:grid;grid-template-columns:repeat(5,1fr);margin-top:80px;border-top:1px solid #315163}.processStep{position:relative;text-align:center;padding:35px 10px 10px}.stepNo{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font:9px 'Geist Mono Variable', monospace;color:#6e8d9c;background:#071d2a;padding:0 12px}.processIcon{height:72px;width:72px;border:1px solid #45687a;display:grid;place-items:center;margin:0 auto 23px;color:#70cff8}.processIcon svg{width:30px}.processStep h3{font-size:16px}.processStep p{font-size:11px;color:#7793a1;margin-top:9px}.connector{position:absolute;right:-7px;top:66px;color:#477386;font-style:normal}.realtime{margin:68px auto 0;text-align:center;font:9px 'Geist Mono Variable', monospace;letter-spacing:.16em;color:#668897}.pulse{display:inline-block;width:7px;height:7px;background:#59d591;border-radius:50%;box-shadow:0 0 0 5px rgba(89,213,145,.12);margin-right:12px}
+.benefitGrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.benefitGrid article{min-height:230px;padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.benefitGrid span{font:10px 'Geist Mono Variable', monospace;color:var(--blue)}.benefitGrid h3{font-size:20px;margin:45px 0 12px}.benefitGrid p{font-size:13px;line-height:1.6;color:#607582}
+.industries{background:var(--mist);padding:120px max(7vw,36px);display:grid;grid-template-columns:.7fr 1.3fr;gap:8%}.industryTitle p{margin-top:30px}.industryGrid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid #b9cdd6;border-top:1px solid #b9cdd6}.industryItem{height:132px;border-right:1px solid #b9cdd6;border-bottom:1px solid #b9cdd6;padding:20px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;transition:.25s}.industryItem:hover{background:var(--navy);color:white;transform:translateY(-3px)}.industryItem b{position:absolute;top:16px;font-size:23px;color:var(--blue)}.industryItem span{font-size:13px;font-weight:700}.industryItem small{position:absolute;right:12px;top:12px;font:8px 'Geist Mono Variable', monospace;color:#839ba7}
+.partners{display:grid;grid-template-columns:.8fr 1.2fr;gap:8%;background:white}.partnerCopy p{margin-top:32px}.partnerLogos{border-top:1px solid var(--line)}.partnerLogos article{min-height:190px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;align-items:center;gap:30px}.partnerLogos h3{font-size:22px;line-height:1.25}.partnerLogos p{font:10px 'Geist Mono Variable', monospace;color:#79909b;margin-top:10px;text-transform:uppercase;letter-spacing:.1em}.undavMark{font-weight:900;font-size:34px;line-height:.72;letter-spacing:-.1em;color:var(--blue)}.cneaMark{font-weight:900;font-size:26px;letter-spacing:-.07em;border:2px solid var(--navy);padding:12px 7px;width:max-content}
+.team{background:#f8fbfc;overflow:hidden}.teamHead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:55px}.sliderControls{display:flex;gap:8px}.sliderControls button{width:46px;height:46px;border:1px solid var(--line);background:white;color:var(--navy);font-size:20px}.teamViewport{overflow:hidden}.teamTrack{display:flex;gap:20px;transition:transform .45s ease}.person{flex:0 0 calc(33.333% - 14px)}.portrait{height:360px;background:linear-gradient(145deg,#dce8ed,#afc5cf);position:relative;overflow:hidden;display:grid;place-items:center}.portrait>span{font-size:84px;font-weight:800;letter-spacing:-.08em;color:rgba(4,37,59,.16);z-index:2}.portrait small{position:absolute;right:16px;top:16px;font:9px 'Geist Mono Variable', monospace}.personGrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(transparent,black)}.person h3{font-size:18px;margin:18px 0 5px}.person p{font-size:11px;color:#708895;text-transform:uppercase;letter-spacing:.1em}
+.portraitPhoto{object-fit:contain;object-position:center bottom}.portrait small{z-index:2;color:white;text-shadow:0 1px 5px rgba(0,0,0,.65)}.personGrid{z-index:1;pointer-events:none}
+.contact{padding:120px max(7vw,36px);background:var(--navy);color:white;display:grid;grid-template-columns:1fr 1fr;gap:10%}.contactCopy>p{color:#a9bec8;line-height:1.7;margin:30px 0;max-width:580px}.contactCopy>a{color:#70d1ff;text-decoration:none;font-size:13px;border-bottom:1px solid #315d74;padding-bottom:8px}.contact form{display:flex;flex-direction:column;gap:24px}.contact label{font-size:10px;letter-spacing:.12em;color:#8fa8b4;text-transform:uppercase}.contact input,.contact textarea{display:block;width:100%;margin-top:10px;background:transparent;border:0;border-bottom:1px solid #466273;color:white;padding:13px 0;outline:none}.contact input:focus,.contact textarea:focus{border-color:#5ccaff}.contact textarea{height:95px;resize:vertical}.contact form .primary{align-self:flex-start}.formNotice{font-size:12px;color:#74d8a0;line-height:1.5}footer{background:#031722;color:white;padding:55px max(7vw,36px) 28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;align-items:start;border-top:1px solid #294351}.footerBrand{justify-self:start}.footerBrand img{width:28px;height:35px}footer>p{color:#7893a0;font-size:12px;line-height:1.6}.footerLinks{display:flex;justify-content:flex-end;gap:25px}.footerLinks button{font-size:11px;color:#9bb0ba}footer small{grid-column:1/-1;border-top:1px solid #233b48;padding-top:24px;margin-top:24px;font:8px 'Geist Mono Variable', monospace;color:#557382;letter-spacing:.13em}
+/* Version 1 — larger editorial scale and technical particle surfaces */
+body{background:#f5fafc;font-size:17px}
+.index{font-size:13px}
+.nav{height:82px;padding-left:max(4vw,26px);padding-right:max(4vw,26px)}
+.scrolled .nav{height:70px}
+.brand img{width:38px;height:47px}.brand span{font-size:20px}
+.navLinks{gap:26px}.navLinks button{font-size:15px}
+.hero p{font-size:21px;max-width:650px}
+.primary,.textLink{font-size:15px}
+.heroFoot{bottom:23px;font-size:12px;color:#8aa4b2}
+.heroFoot .location{font-size:15px;font-weight:700;color:#d7e5eb}
+.location b{font-size:25px;margin-right:10px;vertical-align:middle}
+.proofStrip{height:76px;font-size:12px;background-color:#f5fafc;background-image:radial-gradient(rgba(30,128,188,.14) 1px,transparent 1px);background-size:22px 22px}
+.section{padding-top:125px;padding-bottom:125px}
+.solutions,.benefits,.partners,.team{background-color:#f7fbfd;background-image:radial-gradient(circle at 8% 16%,rgba(30,128,188,.12) 0 1.5px,transparent 2.5px),radial-gradient(circle at 88% 72%,rgba(4,37,59,.08) 0 1px,transparent 2px);background-size:38px 38px,27px 27px}
+.sectionIntro>p,.industryTitle>p,.partnerCopy>p{font-size:19px;max-width:500px}
+.solutionCard{min-height:660px;padding:58px}
+.solutionCard h3{font-size:48px}
+.solutionCard>p{font-size:18px;max-width:535px}
+.solutionCard ul{font-size:15px;gap:18px;line-height:1.45}
+.solutionCard button{left:58px;font-size:15px}
+.solutionDetails{display:flex;flex-direction:column;gap:26px;margin-top:26px}
+.detailBlock{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;padding:66px;position:relative;overflow:hidden}
+.industrialDetail{background:#dcebf2;color:var(--navy)}
+.metallurgyDetail{background:var(--navy);color:white}
+.detailBlock:after{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(30,128,188,.18);border-radius:50%;right:-160px;top:-150px;box-shadow:0 0 0 60px rgba(30,128,188,.04)}
+.detailCopy{position:relative;z-index:2}.detailTag{display:inline-block;font-size:12px;letter-spacing:.18em;font-weight:800;color:var(--blue);margin-bottom:28px}
+.detailBlock h3{font-size:42px;line-height:1.08;letter-spacing:-.045em}
+.detailBlock p{font-size:18px;line-height:1.72;margin:25px 0;color:#486473}
+.metallurgyDetail p{color:#b4c8d2}
+.detailList{display:grid;gap:10px}.detailList span{padding:13px 15px;border-left:3px solid var(--blue);background:rgba(255,255,255,.48);font-size:15px;font-weight:700}
+.astmGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.astmGrid div{border:1px solid #36576a;padding:17px;background:rgba(255,255,255,.025)}
+.astmGrid b{display:block;font-size:18px;color:#72d0fa;margin-bottom:8px}.astmGrid span{font-size:14px;line-height:1.5;color:#b4c8d2}
+.videoWrap{align-self:center;position:relative;width:100%;aspect-ratio:16/9;background:#031722;border:1px solid rgba(92,193,240,.45);box-shadow:0 28px 70px rgba(0,0,0,.22);z-index:2}
+.videoWrap iframe,.videoWrap video{border:0;width:100%;height:100%;display:block;object-fit:cover}
+.videoLabel{position:absolute;left:0;bottom:-34px;font:10px 'Geist Mono Variable', monospace;letter-spacing:.14em;color:#587786}
+.metallurgyDetail .videoLabel{color:#8ea6b2}
+.processStep h3{font-size:20px}.processStep p{font-size:14px}.realtime{font-size:11px}
+.benefits .sectionIntro{grid-template-columns:1.6fr .4fr}
+.benefits .sectionIntro h2{max-width:920px;font-size:clamp(43px,4.2vw,68px)}
+.benefitGrid{gap:18px;border:0}
+.benefitGrid article{min-height:300px;padding:34px;background:rgba(255,255,255,.78);border:1px solid #c2d6df;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(4,37,59,.045);transition:.25s}
+.benefitGrid article:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:rgba(30,128,188,.07);right:-36px;bottom:-45px}
+.benefitGrid article:hover{transform:translateY(-7px);border-color:var(--blue);box-shadow:0 20px 40px rgba(4,37,59,.1)}
+.benefitNo{position:absolute;right:22px;top:20px!important;font:11px 'Geist Mono Variable', monospace!important;color:#83a0ae!important}
+.benefitIcon{width:60px;height:60px;display:grid;place-items:center;background:var(--navy);color:#71d1fd;margin-bottom:42px}
+.benefitIcon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.5}
+.benefitGrid h3{font-size:25px;margin:0 0 15px}.benefitGrid p{font-size:16px;line-height:1.65}
+.industryItem span{font-size:15px}.industryTitle p{font-size:19px}
+.partners{background-color:#edf5f8}.partnerLogos h3{font-size:26px}.partnerLogos p{font-size:12px}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:9%;background:#071d2a;color:white;overflow:hidden}
+.about:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(90,199,249,.12) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(90deg,transparent,black)}
+.aboutLead,.aboutBody{position:relative;z-index:2}.aboutLead h2{font-size:clamp(43px,4.2vw,68px);line-height:1.02;letter-spacing:-.055em}
+.aboutBody>p{font-size:20px;line-height:1.7;color:#bfd0d8;margin-bottom:25px}
+.aboutStats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border-top:1px solid #385664}
+.aboutStats div{padding:24px 14px 0 0}.aboutStats b{display:block;color:#70cff8;font-size:15px;margin-bottom:8px}.aboutStats span{font-size:13px;color:#839da9}
+.person h3{font-size:22px}.person p{font-size:13px}
+.contactCopy>p{font-size:19px}.contactCopy>a{font-size:16px}.contact label{font-size:12px}.contact input,.contact textarea{font-size:16px}
+footer{display:block;padding:70px max(7vw,36px) 30px}
+.footerMain{display:grid;grid-template-columns:1.5fr .7fr .7fr .9fr;gap:6%;align-items:start}
+.footerBrand{justify-self:start}.footerBrand img{width:36px;height:45px}.footerBrand span{font-size:20px}
+.footerMain>div>p{color:#819ba8;font-size:15px;line-height:1.6;max-width:300px;margin-top:20px}
+.footerColumn{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.footerColumn>b{font-size:11px;letter-spacing:.16em;color:#5f8497;margin-bottom:10px}
+.footerColumn button,.footerColumn a{padding:0;color:#c3d3db;background:none;border:0;text-decoration:none;font-size:14px}
+.footerColumn button:hover,.footerColumn a:hover{color:#6ed0fb}
+.arca{display:flex;align-items:center;gap:16px;text-decoration:none;color:#9fb4be}
+.arca img{width:96px;height:96px;background:white;padding:5px;object-fit:contain}.arca span{font-size:12px;line-height:1.5}.arca b{color:#6bd0ff}
+footer>small{display:flex;justify-content:space-between;border-top:1px solid #233b48;padding-top:26px;margin-top:50px;font:10px 'Geist Mono Variable', monospace;color:#668594;letter-spacing:.12em}
+footer>small span{font-size:13px;color:#a1b7c1;font-weight:700}footer>small span b{font-size:21px;margin-right:8px;vertical-align:middle}
+
+@media(max-width:900px){.nav{padding:0 22px}.menuButton{display:flex;width:36px;height:36px;background:none;border:0;flex-direction:column;justify-content:center;gap:5px}.menuButton i{width:22px;height:1px;background:white}.navLinks{position:absolute;top:77px;left:0;right:0;background:var(--navy);padding:25px;display:none;flex-direction:column;align-items:stretch}.navLinks.open{display:flex}.navLinks button{text-align:left}.hero{height:auto;min-height:900px;grid-template-columns:1fr;padding-top:135px;gap:55px}.heroVisual{padding:0}.scanFrame{height:360px}.heroFoot{display:none}.proofStrip{overflow:hidden;justify-content:flex-start;padding:0 22px;white-space:nowrap}.sectionIntro,.industries,.partners,.contact,.detailBlock,.about{grid-template-columns:1fr}.sectionIntro{gap:30px}.solutionGrid{grid-template-columns:1fr}.detailBlock{gap:55px;padding:45px}.videoWrap{max-width:720px}.processFlow{grid-template-columns:1fr;border-top:0;margin-top:50px}.processStep{border-top:1px solid #315163;padding:30px}.stepNo{top:15px;left:15px;transform:none}.connector{right:50%;top:auto;bottom:-14px;transform:rotate(90deg)}.benefitGrid{grid-template-columns:1fr 1fr}.industries{gap:60px}.partnerLogos{margin-top:20px}.aboutStats{margin-bottom:20px}.person{flex-basis:calc(50% - 10px)}.footerMain{grid-template-columns:1fr 1fr;row-gap:50px}}
+@media(max-width:580px){.hero,.section,.process,.industries,.partners,.team,.contact{padding-left:22px;padding-right:22px}.hero{min-height:850px}.hero h1{font-size:49px}.heroActions{align-items:flex-start;flex-direction:column;gap:8px}.scanFrame{height:300px}.metrics div{padding:10px}.metrics b{font-size:9px}.section{padding-top:85px;padding-bottom:85px}.sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2{font-size:41px}.solutionCard{padding:35px 25px;min-height:620px}.solutionCard h3{font-size:35px}.solutionCard ul{grid-template-columns:1fr}.solutionCard button{left:25px}.benefitGrid{grid-template-columns:1fr}.industryGrid{grid-template-columns:1fr 1fr}.industryItem{height:112px}.partnerLogos article{grid-template-columns:95px 1fr}.teamHead{align-items:flex-start;gap:30px;flex-direction:column}.person{flex-basis:85%}.portrait{height:310px}.contact{padding-top:85px;padding-bottom:85px}footer{grid-template-columns:1fr}.footerLinks{justify-content:flex-start}footer small{grid-column:auto}.heroVisual{display:none}.hero{min-height:720px}}
+
+/* Hero footage: the slight zoom removes the source video's black padding while
+   the overlays preserve the visual language of the original inspection frame. */
+.videoFrame{isolation:isolate;background:#03131d;border-color:rgba(112,205,248,.55);box-shadow:0 32px 90px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,255,255,.03)}
+.heroVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;transform:scale(1.16);filter:saturate(.82) contrast(1.08) brightness(.78);z-index:-3}
+.videoShade{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(1,14,23,.34) 0%,transparent 24%,transparent 62%,rgba(1,14,23,.78) 100%),linear-gradient(90deg,rgba(4,24,36,.42),transparent 42%,rgba(3,18,28,.15));box-shadow:inset 0 0 70px rgba(0,10,18,.28);pointer-events:none}
+.videoFrame:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 45%,rgba(93,210,255,.07) 50%,transparent 55%);transform:translateX(-120%);animation:videoSheen 7s ease-in-out infinite;pointer-events:none}
+.videoFrame .scanTop{position:absolute;z-index:2;left:0;right:0;top:0;background:linear-gradient(180deg,rgba(2,20,31,.82),rgba(2,20,31,.18));text-shadow:0 1px 8px #00111b}
+.videoFrame .scanLine{z-index:1;opacity:.62}
+.videoFrame .metrics{z-index:2;backdrop-filter:blur(9px);background:rgba(2,21,32,.72)}
+@keyframes videoSheen{0%,72%,100%{transform:translateX(-120%)}84%{transform:translateX(120%)}}
+@media(prefers-reduced-motion:reduce){.videoFrame:after,.videoFrame .scanLine{animation:none}}
+
+/* Full hero background using the source video's natural aspect ratio. */
+.heroVisual{position:absolute;inset:96px 18px 18px;display:block;padding:0;z-index:1}
+.heroVisual .videoFrame{width:100%;height:100%;min-height:0;border:1px solid rgba(112,205,248,.18);background:var(--navy);box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.heroVisual .heroVideo{object-fit:cover;object-position:center;transform:none;filter:saturate(.84) contrast(1.06) brightness(.72)}
+.heroVisual .videoShade{background:linear-gradient(90deg,rgba(1,14,23,.96) 0%,rgba(1,14,23,.84) 34%,rgba(1,14,23,.42) 62%,rgba(1,14,23,.14) 100%),linear-gradient(180deg,rgba(1,14,23,.34),transparent 48%,rgba(1,14,23,.65));box-shadow:inset 0 0 100px rgba(0,8,14,.22)}
+.heroCopy{position:relative;z-index:2;grid-column:1/-1}
+
+@media(max-width:900px){
+  .heroVisual{inset:94px 14px 14px;display:block;padding:0}
+  .heroVisual .videoFrame{height:100%;min-height:0}
+}
+
+@media(max-width:580px){
+  .heroVisual{inset:88px 10px 10px;display:block}
+  .heroVisual .videoShade{background:linear-gradient(90deg,rgba(1,14,23,.94),rgba(1,14,23,.58)),linear-gradient(180deg,rgba(1,14,23,.36),transparent 42%,rgba(1,14,23,.82))}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(max-width:580px){
+  body{font-size:16px}
+  .navLinks{gap:22px}.navLinks button{font-size:16px}
+  .hero p{font-size:19px}
+  .solutionCard{min-height:690px}
+  .solutionCard h3{font-size:38px}
+  .solutionCard>p{font-size:17px}
+  .solutionCard ul{font-size:14px}
+  .detailBlock{padding:36px 24px 52px}
+  .detailBlock h3{font-size:35px}
+  .detailBlock p{font-size:17px}
+  .astmGrid{grid-template-columns:1fr}
+  .benefits .sectionIntro{grid-template-columns:1fr}
+  .benefits .sectionIntro h2,.aboutLead h2{font-size:40px}
+  .benefitGrid article{min-height:270px}
+  .aboutBody>p{font-size:18px}
+  .aboutStats{grid-template-columns:1fr}
+  .footerMain{grid-template-columns:1fr}
+  .arca img{width:112px;height:112px}
+  footer>small{flex-direction:column;gap:18px;line-height:1.5}
+}
+
+/* Version 1.2 — sequential capabilities and high-tech visual language */
+.hero{background:
+  radial-gradient(circle at 76% 43%,rgba(30,128,188,.22),transparent 30%),
+  linear-gradient(135deg,#031a29 0%,#04253b 58%,#052d47 100%)}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(112,207,248,.16) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(90deg,transparent 25%,black)}
+.hero h1{font-size:clamp(48px,5vw,76px);line-height:1.02;max-width:770px}
+.heroIdentity{display:flex;align-items:center;gap:12px;margin-top:24px;color:#7ed3fa;font:12px 'Geist Mono Variable', monospace;letter-spacing:.11em;text-transform:uppercase}
+.heroIdentity i{width:30px;height:1px;background:#65caf7;box-shadow:0 0 12px #65caf7}
+.argentinaFlag{display:inline-grid!important;grid-template-rows:repeat(3,1fr);width:34px;height:22px;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.25);vertical-align:middle;margin-right:10px}
+.argentinaFlag>i{display:block;background:#75aadb}.argentinaFlag>i:nth-child(2){display:grid;place-items:center;background:#fff;color:#f5b51b;font-size:10px;font-style:normal}.argentinaFlag>i b{line-height:1}.location .argentinaFlag{width:38px;height:25px}
+.solutionDetails{gap:0;margin-left:calc(max(7vw,36px) * -1);margin-right:calc(max(7vw,36px) * -1);margin-bottom:-125px}
+.visionStage,.metallurgyStage{position:relative;padding:110px max(7vw,36px);overflow:hidden}
+.visionStage{margin-top:40px;background:
+  linear-gradient(90deg,rgba(30,128,188,.08) 1px,transparent 1px),
+  linear-gradient(rgba(30,128,188,.08) 1px,transparent 1px),
+  #eaf4f8;background-size:56px 56px}
+.visionStage:before{content:"VISION / 01";position:absolute;right:-15px;top:55px;font-size:112px;font-weight:900;letter-spacing:-.08em;color:rgba(4,37,59,.035)}
+.metallurgyStage{background:
+  radial-gradient(circle at 82% 20%,rgba(30,128,188,.22),transparent 31%),
+  linear-gradient(135deg,#031923,#06283c);color:white}
+.metallurgyStage:before{content:"MICRO / 02";position:absolute;left:-18px;bottom:30px;font-size:112px;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.035)}
+.stageHeader{display:grid;grid-template-columns:1.15fr .85fr;gap:8%;align-items:end;position:relative;z-index:2;margin-bottom:64px}
+.stageHeader>div{display:flex;flex-direction:column;align-items:flex-start}.stageNumber{font:12px 'Geist Mono Variable', monospace;letter-spacing:.16em;color:#7694a2;margin-bottom:20px}
+.stageHeader h3{font-size:clamp(42px,4.4vw,66px);line-height:1.03;letter-spacing:-.055em}
+.stageHeader>p{font-size:19px;line-height:1.7;color:#506c79;max-width:600px}
+.metallurgyStage .stageHeader>p{color:#afc4ce}.metallurgyStage .detailTag{color:#70cff8}
+.visionFeatureGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:2}
+.visionFeatureGrid article{position:relative;min-height:290px;padding:31px;background:rgba(255,255,255,.8);border:1px solid #bfd4dd;box-shadow:0 14px 32px rgba(4,37,59,.05);transition:.25s}
+.visionFeatureGrid article:hover{transform:translateY(-6px);border-color:#1e80bc;box-shadow:0 20px 45px rgba(4,37,59,.11)}
+.featureIndex{position:absolute;right:20px;top:18px;font:10px 'Geist Mono Variable', monospace;color:#82a0ad}
+.featureIcon{width:54px;height:54px;display:grid;place-items:center;color:#69cffc;background:#04253b;margin-bottom:31px}
+.featureIcon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.5}
+.visionFeatureGrid h4{font-size:22px;margin:0 0 13px}.visionFeatureGrid p{font-size:15px;line-height:1.65;color:#58727e}
+.videoFeature{display:grid;grid-template-columns:.7fr 1.3fr;gap:8%;align-items:center;margin-top:70px;padding:52px;background:#04253b;color:white;position:relative;z-index:2;box-shadow:0 25px 60px rgba(4,37,59,.18)}
+.videoFeature:before{content:"";position:absolute;left:0;top:0;width:35%;height:2px;background:#68ccfa;box-shadow:0 0 18px #68ccfa}
+.signal{font:11px 'Geist Mono Variable', monospace;letter-spacing:.13em;color:#74d6a1}.signal i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#65d495;box-shadow:0 0 0 5px rgba(101,212,149,.12);margin-right:10px}
+.videoFeature h4{font-size:34px;line-height:1.1;margin:22px 0}.videoFeature>div>p{font-size:17px;line-height:1.68;color:#a9c0ca}
+.videoFeature .videoLabel{color:#82a2b0}
+.techDivider{height:94px;display:flex;align-items:center;gap:22px;padding:0 max(7vw,36px);background:#061c29;color:#75909d}
+.techDivider span{font:10px 'Geist Mono Variable', monospace;letter-spacing:.18em}.techDivider i{height:1px;background:#2c4d5d;flex:1}.techDivider b{font:24px 'Geist Mono Variable', monospace;color:#6dccf7}
+.metallurgyBody{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.metallurgyStage .astmGrid div{background:rgba(255,255,255,.035);border-color:#365a6c;padding:23px}
+.metallurgyStage .astmGrid b{font-size:21px}.metallurgyStage .astmGrid span{font-size:15px}
+.industryGrid{grid-template-columns:repeat(3,1fr)}
+.industryItem{height:220px;padding:24px;justify-content:flex-start;background:rgba(255,255,255,.36)}
+.industryItem b{font-size:28px}.industryItem>span{font-size:18px;margin-top:66px}
+.industryItem p{font-size:13px;line-height:1.48;color:#607a86;margin-top:10px;max-width:90%}
+.industryItem:hover p{color:#b7ccd5}.industryItem:hover b{color:#71cef8}
+footer>small span{display:flex;align-items:center}
+footer>small .argentinaFlag{margin-right:10px}
+
+@media(max-width:1000px){
+  .stageHeader,.metallurgyBody{grid-template-columns:1fr;gap:34px}
+  .visionFeatureGrid{grid-template-columns:1fr 1fr}
+  .videoFeature{grid-template-columns:1fr;gap:38px}
+  .videoFeature .videoWrap{max-width:none}
+}
+@media(max-width:580px){
+  .hero h1{font-size:43px}
+  .heroIdentity{font-size:10px;line-height:1.5}
+  .solutionDetails{margin-left:-22px;margin-right:-22px;margin-bottom:-85px}
+  .visionStage,.metallurgyStage{padding:80px 22px}
+  .visionStage:before,.metallurgyStage:before{font-size:65px}
+  .stageHeader h3{font-size:38px}
+  .stageHeader>p{font-size:17px}
+  .visionFeatureGrid{grid-template-columns:1fr}
+  .visionFeatureGrid article{min-height:255px}
+  .videoFeature{padding:30px 22px}
+  .videoFeature h4{font-size:29px}
+  .techDivider{padding:0 22px}
+  .industryGrid{grid-template-columns:1fr}
+  .industryItem{height:190px}
+}
+
+/* Mobile-first finishing pass */
+body{overflow-x:hidden}
+.heroIdentity{padding-left:14px;border-left:2px solid #65caf7}
+.heroLocation{position:absolute;left:max(7vw,36px);bottom:25px;z-index:3;display:flex;align-items:center;gap:9px;color:#9bb1bc;font-size:14px;letter-spacing:.04em}
+.heroLocation img{width:27px;height:17px;display:block;object-fit:cover;border:1px solid rgba(255,255,255,.22);box-shadow:0 3px 10px rgba(0,0,0,.2)}
+footer>small span{display:block;color:#91aab6;font-size:12px;text-transform:none;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .nav{height:70px}
+  .scrolled .nav{height:64px}
+  .brand img{width:31px;height:38px}
+  .brand span{font-size:17px}
+  .menuButton{width:44px;height:44px;align-items:flex-end}
+  .navLinks{top:100%;gap:0;padding:10px 22px 22px;border-top:1px solid rgba(255,255,255,.12);box-shadow:0 20px 35px rgba(0,0,0,.22)}
+  .navLinks button{min-height:48px;padding:0;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px}
+  .navLinks .navCta{margin-top:14px;text-align:center;justify-content:center}
+  .hero{min-height:auto;height:auto;padding:125px 28px 80px;grid-template-columns:1fr;gap:48px}
+  .hero h1{max-width:720px}
+  .hero p{max-width:670px}
+  .heroVisual{padding-left:0;max-width:720px;width:100%}
+  .heroLocation{position:static;grid-column:1;margin-top:-18px;font-size:13px}
+  .proofStrip{height:62px;gap:20px;font-size:10px}
+  .section,.process,.industries,.partners,.team,.contact{padding-top:84px;padding-bottom:84px}
+  .sectionIntro{margin-bottom:42px}
+  .solutionCard{min-height:auto;padding:42px 36px}
+  .solutionCard .cardIcon{margin-bottom:38px}
+  .solutionCard button{position:relative;left:auto;bottom:auto;margin-top:28px}
+  .solutionDetails{margin-bottom:-84px}
+  .visionStage,.metallurgyStage{padding-top:84px;padding-bottom:84px}
+  .stageHeader{margin-bottom:44px}
+  .visionFeatureGrid article{min-height:270px}
+  .processFlow{margin-top:55px}
+  .benefits .sectionIntro{grid-template-columns:1fr}
+  .industries{gap:44px}
+  .industryTitle p{max-width:650px}
+  .partners{gap:42px}
+  .teamHead{gap:24px}
+  .contact{gap:55px}
+  .footerMain{gap:40px}
+}
+
+@media(max-width:600px){
+  .nav{padding:0 18px}
+  .navLinks{padding-left:18px;padding-right:18px}
+  .hero{padding:108px 20px 60px}
+  .hero:after{width:360px;height:360px;right:-250px;top:120px}
+  .hero h1{font-size:clamp(42px,12vw,54px);line-height:1}
+  .hero p{font-size:18px;line-height:1.55;margin-top:25px}
+  .heroIdentity{font-size:10px;margin-top:20px;padding-left:11px}
+  .heroActions{margin-top:32px;width:100%}
+  .heroActions .primary{width:100%;display:flex;justify-content:space-between;align-items:center}
+  .heroActions .textLink{width:max-content}
+  .heroVisual{display:none}
+  .heroLocation{margin-top:12px}
+  .proofStrip{padding-left:20px}
+  .section,.process,.industries,.partners,.team,.contact{padding:70px 20px}
+  .index{font-size:10px;margin-bottom:20px}
+  .sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2,.benefits .sectionIntro h2{font-size:clamp(34px,10vw,43px)}
+  .sectionIntro>p,.industryTitle>p,.partnerCopy>p{font-size:17px}
+  .solutionGrid{gap:14px}
+  .solutionCard{padding:34px 23px}
+  .solutionCard h3{font-size:36px}
+  .solutionCard>p{font-size:16px}
+  .solutionCard ul{font-size:14px;grid-template-columns:1fr;margin-bottom:22px}
+  .solutionDetails{margin-left:-20px;margin-right:-20px;margin-bottom:-70px}
+  .visionStage,.metallurgyStage{padding:70px 20px}
+  .stageHeader{margin-bottom:36px}
+  .stageHeader h3{font-size:36px}
+  .stageHeader>p{font-size:16px}
+  .visionFeatureGrid{gap:12px}
+  .visionFeatureGrid article{min-height:auto;padding:27px 24px}
+  .featureIcon{margin-bottom:24px}
+  .visionFeatureGrid h4{font-size:21px}
+  .videoFeature{margin-top:45px;padding:28px 20px;gap:30px}
+  .videoFeature h4{font-size:28px}
+  .videoWrap{width:100%;box-shadow:0 16px 35px rgba(0,0,0,.2)}
+  .videoLabel{position:static;margin-top:12px;line-height:1.45}
+  .techDivider{height:75px;padding:0 20px}
+  .astmGrid{gap:10px}
+  .metallurgyStage .astmGrid div{padding:19px}
+  .processHead{text-align:left}
+  .processFlow{margin-top:42px}
+  .processStep{text-align:left;padding:26px 20px 26px 82px;min-height:110px}
+  .processIcon{position:absolute;left:15px;top:25px;width:50px;height:50px;margin:0}
+  .processIcon svg{width:24px}
+  .stepNo{display:none}
+  .connector{display:none}
+  .realtime{text-align:left;line-height:1.6;margin-top:35px}
+  .benefitGrid{gap:12px}
+  .benefitGrid article{min-height:auto;padding:28px 24px}
+  .benefitIcon{margin-bottom:28px}
+  .industryGrid{grid-template-columns:1fr}
+  .industryItem{height:auto;min-height:175px;padding:22px}
+  .industryItem>span{margin-top:55px}
+  .industryItem p{font-size:14px;max-width:100%}
+  .partnerLogos article{min-height:165px;grid-template-columns:80px 1fr;gap:18px}
+  .partnerLogos h3{font-size:21px}
+  .aboutStats{gap:0}
+  .aboutStats div{padding:18px 0;border-bottom:1px solid #385664}
+  .teamHead{align-items:flex-start}
+  .sliderControls button{width:48px;height:48px}
+  .person{flex-basis:88%}
+  .portrait{height:280px}
+  .contact{gap:45px}
+  .contact form{gap:27px}
+  .contact input,.contact textarea{font-size:16px}
+  .contact form .primary{width:100%}
+  footer{padding:58px 20px 26px}
+  .footerMain{grid-template-columns:1fr;gap:38px}
+  .footerColumn button,.footerColumn a{min-height:38px}
+  .arca{align-items:flex-start}
+  .arca img{width:96px;height:96px}
+  footer>small{margin-top:38px;gap:12px;font-size:9px}
+}
+
+/* Side-mounted hero footage with a soft transition into the page colors. */
+.hero{grid-template-columns:.95fr 1.05fr;background:
+  radial-gradient(circle at 12% 18%,rgba(30,128,188,.12),transparent 24%),
+  linear-gradient(135deg,var(--white) 0%,var(--mist) 68%,#dcebf2 100%);color:var(--navy)}
+.hero:before{background-image:radial-gradient(rgba(30,128,188,.2) 1px,transparent 1px);background-size:24px 24px;mask-image:linear-gradient(90deg,black,transparent 54%)}
+.hero:after{border-color:rgba(30,128,188,.22);box-shadow:0 0 0 90px rgba(30,128,188,.045),0 0 0 190px rgba(30,128,188,.025)}
+.heroGrid{opacity:.8;background-image:linear-gradient(rgba(30,128,188,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(30,128,188,.07) 1px,transparent 1px);mask-image:linear-gradient(90deg,black,transparent 58%)}
+.hero .heroCopy{position:relative;grid-column:auto;z-index:3}
+.hero .eyebrow{display:inline-flex;align-items:center;width:max-content;padding:9px 13px;border:1px solid rgba(30,128,188,.25);background:rgba(255,255,255,.65);color:#315d74;box-shadow:0 8px 24px rgba(4,37,59,.05)}
+.hero h1{color:var(--navy);text-wrap:balance}.hero h1 em{color:var(--blue)}
+.hero p{color:#486473;font-size:25px;line-height:1.56}
+.heroIdentity{color:var(--blue);background:rgba(255,255,255,.55);padding:13px 17px;border-left:3px solid var(--blue);box-shadow:0 10px 30px rgba(4,37,59,.05);font-size:18px;line-height:1.55}
+.hero .textLink{color:var(--navy);border-bottom-color:#9ab2be}.hero .textLink span{color:var(--blue)}
+.hero .primary{box-shadow:0 14px 32px rgba(30,128,188,.24);transition:transform .25s ease,box-shadow .25s ease,background .25s ease}.hero .primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(30,128,188,.3)}
+.hero .heroVisual{position:relative;inset:auto;display:block;width:calc(130% + max(7vw,36px));max-width:none;margin-left:-30%;margin-right:calc(-1 * max(7vw,36px));padding:0;z-index:2}
+.hero .heroVisual .videoFrame{width:100%;height:auto;min-height:0;border:1px solid rgba(30,128,188,.32);background:white;box-shadow:0 30px 75px rgba(4,37,59,.18),0 0 0 9px rgba(255,255,255,.7);overflow:hidden;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 10%,#000 22%,#000 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.72) 10%,#000 22%,#000 100%)}
+.hero .heroVisual .heroVideo{position:relative;inset:auto;display:block;width:100%;height:auto;object-fit:unset;object-position:initial;transform:none;filter:saturate(.86) contrast(1.06) brightness(.78)}
+.hero .heroVisual .videoShade{background:linear-gradient(90deg,var(--mist) 0%,rgba(238,245,248,.78) 9%,rgba(238,245,248,.12) 30%,transparent 58%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.hero .heroVisual .heroVideoPrimary{position:relative}
+.hero .heroVisual .heroVideoDashboard{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .heroVisual .heroVideo{transition:opacity 1.15s ease,filter 1.15s ease}
+.hero .heroVisual .videoVisible{opacity:1;filter:saturate(.86) contrast(1.06) brightness(.78)}
+.hero .heroVisual .videoHidden{opacity:0;filter:saturate(.72) contrast(1.02) brightness(.52)}
+.dashboardMessage{position:absolute;left:20%;right:7%;bottom:11%;z-index:4;padding:22px 25px;border-left:2px solid #58c7fa;background:linear-gradient(90deg,rgba(1,20,31,.9),rgba(1,20,31,.48) 70%,transparent);backdrop-filter:blur(7px);color:white;opacity:0;transform:translateY(14px);transition:opacity .75s ease .2s,transform .75s ease .2s;pointer-events:none}
+.dashboardMessageVisible{opacity:1;transform:translateY(0)}
+.dashboardMessage span{display:block;margin-bottom:9px;color:#72d5ff;font:700 9px/1.2 'Geist Mono Variable', monospace;letter-spacing:.18em}
+.dashboardMessage strong{display:block;max-width:680px;font-size:clamp(21px,1.65vw,28px);font-weight:500;line-height:1.28;letter-spacing:-.025em;text-wrap:balance}
+.heroLocation{color:#365766;font-size:20px;font-weight:700;gap:13px}.heroLocation img{width:48px;height:31px;border-color:rgba(4,37,59,.18);box-shadow:0 5px 14px rgba(4,37,59,.12)}
+.brand .brandLogo{position:relative;display:block;width:40px;height:48px;flex:0 0 40px}
+.brand .brandLogo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
+.brand .brandLogoDark{opacity:0}.scrolled .brand .brandLogoLight{opacity:0}.scrolled .brand .brandLogoDark{opacity:1}
+.footerBrand>img{object-fit:contain;object-position:center;filter:none}
+body:not(.scrolled) .nav{border-bottom-color:rgba(4,37,59,.14)}
+body:not(.scrolled) .brand,body:not(.scrolled) .navLinks button{color:var(--navy)}
+body:not(.scrolled) .brand img{filter:none}
+body:not(.scrolled) .navCta{border-color:rgba(4,37,59,.35)!important;background:rgba(255,255,255,.55)}
+body:not(.scrolled) .menuButton i{background:var(--navy)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero .heroVisual{position:relative;inset:auto;display:block;width:calc(100% + 22px);max-width:none;margin:0 -22px 0 0;padding:0}
+  .hero .heroVisual .videoFrame{height:auto;min-height:0}
+  .dashboardMessage{left:15%;right:5%;bottom:9%}
+  body:not(.scrolled) .navLinks.open{background:rgba(255,255,255,.97);box-shadow:0 18px 35px rgba(4,37,59,.12)}
+  body:not(.scrolled) .navLinks.open .navCta{border-color:rgba(4,37,59,.3)!important}
+}
+
+@media(max-width:580px){
+  .hero .heroVisual{display:none}
+  .hero p{font-size:22px}
+  .heroIdentity{font-size:16px}
+  .heroLocation{font-size:17px;gap:10px}.heroLocation img{width:42px;height:27px}
+}
+
+/* Metalography now follows the About section as an autonomous editorial block. */
+.solutions .solutionDetails{margin-bottom:0}
+.metallurgyAfterAbout{isolation:isolate}
+.metallurgyAfterAbout .videoWrap{border-color:rgba(112,205,248,.34);box-shadow:0 28px 80px rgba(0,0,0,.32);overflow:hidden}
+.metallurgyAfterAbout .videoWrap video{object-fit:cover;filter:saturate(.9) contrast(1.04);background:#031722}
+.metallurgyAfterAbout .videoWrap:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 55px rgba(1,14,23,.2);pointer-events:none}
+
+/* Larger, more readable type scale across the site. */
+body{font-size:17px}
+.navLinks button,.navCta{font-size:14px}
+.brand span{font-size:17px}
+.eyebrow,.index,.detailTag,.signal{font-size:12px}
+.hero h1{font-size:clamp(58px,6.35vw,96px)}
+.hero p{font-size:22px;line-height:1.58;max-width:650px}
+.heroIdentity{font-size:16px;line-height:1.55}
+.primary,.textLink{font-size:14px}
+.proofStrip span{font-size:12px}
+.sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2{font-size:clamp(48px,4.8vw,76px)}
+.sectionIntro>p,.stageHeader>p,.industryTitle>p,.partnerCopy>p,.contactCopy>p{font-size:21px;line-height:1.7}
+.solutionCard h3{font-size:44px}
+.solutionCard>p{font-size:18px;line-height:1.7}
+.solutionCard li{font-size:15px;line-height:1.5}
+.stageHeader h3{font-size:clamp(42px,4.25vw,66px)}
+.visionFeatureGrid h4,.benefitGrid h3{font-size:23px}
+.visionFeatureGrid p,.benefitGrid p{font-size:16px;line-height:1.65}
+.astmGrid b{font-size:22px}
+.astmGrid span{font-size:16px;line-height:1.55}
+.processStep h3{font-size:21px}
+.processStep p{font-size:15px}
+.industryItem span{font-size:18px}
+.industryItem p{font-size:15px;line-height:1.55}
+.partnerLogos h3{font-size:24px}
+.partnerLogos p{font-size:14px}
+.aboutBody>p{font-size:22px;line-height:1.72}
+.aboutStats b{font-size:17px}
+.aboutStats span{font-size:14px}
+.person h3{font-size:20px}
+.person p{font-size:13px}
+.contact label{font-size:15px}
+.contact input,.contact textarea{font-size:17px}
+.footerColumn b{font-size:13px}
+.footerColumn button,.footerColumn a,footer p{font-size:15px}
+
+@media(max-width:900px){
+  .hero h1{font-size:clamp(54px,9vw,78px)}
+  .sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2{font-size:clamp(44px,7vw,62px)}
+}
+
+@media(max-width:580px){
+  body{font-size:17px}
+  .hero h1{font-size:52px}
+  .hero p{font-size:20px}
+  .heroIdentity{font-size:15px}
+  .sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2{font-size:clamp(38px,10.5vw,46px)}
+  .sectionIntro>p,.stageHeader>p,.industryTitle>p,.partnerCopy>p,.contactCopy>p,.aboutBody>p{font-size:18px}
+  .solutionCard h3{font-size:39px}
+}
+
+/* Raise the small-label tier so technical copy remains comfortably readable. */
+.eyebrow{font-size:15px;line-height:1.45;letter-spacing:.16em}
+.proofStrip span{font-size:15px;letter-spacing:.1em}
+.solutionCard li{font-size:17px;line-height:1.55}
+.index,.detailTag,.signal,.stageNumber{font-size:14px;line-height:1.45}
+.realtime{font-size:14px}
+.videoLabel{font-size:13px}
+.featureIndex,.benefitNo,.cardNumber{font-size:13px}
+.visionFeatureGrid p,.benefitGrid p{font-size:17px}
+.processStep p{font-size:16px}
+.industryItem p{font-size:16px}
+.partnerLogos p{font-size:15px}
+.person p{font-size:14px}
+.aboutStats span{font-size:15px}
+.heroLocation{font-size:15px}
+.dashboardMessage span{font-size:12px}
+.footerColumn b,footer>small{font-size:14px}
+
+@media(max-width:580px){
+  .eyebrow{font-size:13px}
+  .proofStrip span{font-size:14px}
+  .solutionCard li{font-size:16px}
+  .index,.detailTag,.signal,.stageNumber{font-size:13px}
+}
+
+/* Compact circular team portraits; transparent SVGs keep the page background visible. */
+.portraitWithPhoto{width:clamp(170px,17vw,220px);height:auto;aspect-ratio:1;margin:0 auto;border:1px solid rgba(30,128,188,.22);border-radius:0;background:transparent}
+
+/* Show the complete team at once and keep every silhouette safely inside its circle. */
+.team .sliderControls{display:none}
+.teamTrack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1.2vw,20px);transform:none!important}
+.teamTrack .person{min-width:0;flex:none;text-align:center}
+.teamTrack .portraitWithPhoto{width:min(100%,230px)}
+.teamTrack .person:nth-child(1){--portrait-width:75.24%}
+.teamTrack .person:nth-child(2){--portrait-width:100%}
+.teamTrack .person:nth-child(3){--portrait-width:74.95%}
+.teamTrack .person:nth-child(4){--portrait-width:100%}
+.teamTrack .person:nth-child(5){--portrait-width:96.02%}
+.teamTrack .portraitPhoto{right:auto!important;left:50%!important;width:var(--portrait-width)!important;height:100%!important;box-sizing:border-box;padding:0;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:grayscale(1)}
+.teamTrack .person h3{font-size:clamp(11px,1.35vw,20px)}
+.teamTrack .person p{font-size:clamp(8px,.85vw,13px);overflow-wrap:anywhere}
+
+@media(max-width:760px){
+  .teamTrack{grid-template-columns:1fr;gap:42px}
+  .teamTrack .portraitWithPhoto{width:min(72vw,230px)}
+  .teamTrack .person h3{font-size:20px}
+  .teamTrack .person p{font-size:13px}
+}
+
+/* Final hero type and location scale. */
+.hero .eyebrow{font-size:17px}
+.hero p{font-size:25px;line-height:1.56}
+.hero .heroIdentity{font-size:18px;line-height:1.55}
+.hero .heroLocation{font-size:20px}
+.hero .heroLocation img{width:48px;height:31px}
+
+@media(max-width:580px){
+  .hero .eyebrow{font-size:14px}
+  .hero p{font-size:22px}
+  .hero .heroIdentity{font-size:16px}
+  .hero .heroLocation{font-size:17px}
+  .hero .heroLocation img{width:42px;height:27px}
+}
+
+/* Modern typography and a more generous small-text scale. */
+body,button,input,textarea{font-family:'Geist Variable', sans-serif}
+.navLinks{gap:clamp(22px,2.1vw,38px)}
+.navLinks button,.navCta{font-size:16px;font-weight:560;letter-spacing:-.01em}
+.brand span,.footerBrand span{font-size:19px;line-height:1.02;letter-spacing:-.035em}
+.brand span b,.footerBrand span b{font-weight:720}
+.eyebrow,.index,.detailTag,.signal,.stageNumber{font-family:'Geist Mono Variable', monospace;font-size:15px;letter-spacing:.12em}
+.proofStrip span{font-size:16px;font-weight:650}
+.solutionCard li{font-size:18px}
+.featureIndex,.benefitNo,.cardNumber,.videoLabel,.dashboardMessage span{font-size:14px}
+.realtime{font-size:15px}
+.processStep p,.industryItem p,.partnerLogos p,.aboutStats span{font-size:17px}
+.person p{font-size:15px}
+.contact label{font-size:16px;font-weight:620}
+.footerColumn b,footer>small{font-size:15px}
+.footerColumn button,.footerColumn a,footer p{font-size:16px}
+
+/* Layered particle field contained within the light hero. */
+.hero{isolation:isolate;background:
+  radial-gradient(circle at 13% 20%,rgba(30,128,188,.16),transparent 23%),
+  radial-gradient(circle at 48% 82%,rgba(39,159,232,.09),transparent 27%),
+  radial-gradient(circle at 90% 12%,rgba(30,128,188,.08),transparent 21%),
+  linear-gradient(135deg,var(--white) 0%,var(--mist) 68%,#dcebf2 100%)}
+.heroGrid{opacity:1;background-image:
+  radial-gradient(circle,rgba(30,128,188,.34) 0 1.4px,transparent 1.8px),
+  radial-gradient(circle,rgba(4,37,59,.16) 0 1px,transparent 1.5px),
+  linear-gradient(rgba(30,128,188,.055) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(30,128,188,.055) 1px,transparent 1px);
+  background-size:38px 38px,67px 67px,76px 76px,76px 76px;
+  background-position:0 0,19px 13px,0 0,0 0;
+  mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.82) 52%,transparent 90%);
+  animation:heroParticles 24s linear infinite}
+.hero:before{z-index:0;background-image:
+  radial-gradient(circle at 18% 28%,rgba(30,128,188,.42) 0 2px,transparent 2.8px),
+  radial-gradient(circle at 35% 68%,rgba(39,159,232,.28) 0 3px,transparent 3.8px),
+  radial-gradient(circle at 56% 21%,rgba(4,37,59,.18) 0 1.5px,transparent 2.2px);
+  background-size:170px 170px,240px 240px,130px 130px;
+  mask-image:linear-gradient(90deg,#000,transparent 73%);
+  animation:heroParticlesDeep 32s ease-in-out infinite alternate}
+.hero .heroCopy,.hero .heroVisual{position:relative;z-index:3}.hero .heroLocation{z-index:3}
+@keyframes heroParticles{to{background-position:38px -38px,-48px 80px,0 0,0 0}}
+@keyframes heroParticlesDeep{to{transform:translate3d(18px,-12px,0) scale(1.025)}}
+
+@media(max-width:900px){
+  .navLinks button,.navCta{font-size:17px}
+}
+@media(max-width:580px){
+  .brand span{font-size:17px}
+  .proofStrip span{font-size:15px}
+  .solutionCard li{font-size:17px}
+  .eyebrow,.index,.detailTag,.signal,.stageNumber{font-size:14px}
+  .heroGrid{background-size:32px 32px,59px 59px,64px 64px,64px 64px}
+}
+@media(prefers-reduced-motion:reduce){.heroGrid,.hero:before{animation:none}}

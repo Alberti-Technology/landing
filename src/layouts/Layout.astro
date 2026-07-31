@@ -1,0 +1,32 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/logos/logo_principal.svg" />
+    <link rel="shortcut icon" href="/logos/logo_principal.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Alberti Technology" />
+    <meta property="og:description" content="IA para monitorear procesos, detectar desvíos y optimizar la operación en tiempo real." />
+    <meta property="og:image" content="/logos/alberti-cover.jpg" />
+    <meta name="codex-preview" content="development" />
+    <title>{title}</title>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
