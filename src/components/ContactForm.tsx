@@ -9,7 +9,7 @@ export default function ContactForm() {
         <span className="index">08 — CONTACTO</span>
         <h2>Su proceso ya genera datos.<br /><em>Empecemos a usarlos.</em></h2>
         <p>Cuéntenos qué necesita medir, controlar o automatizar. Diseñamos una prueba de concepto sobre su operación real.</p>
-        <a href="mailto:contacto@albertitechnology.com">contacto@albertitechnology.com ↗</a>
+        <a href="mailto:albertifranco97@gmail.com">albertifranco97@gmail.com ↗</a>
       </div>
       <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
         <label>Nombre y empresa<input required placeholder="Su nombre / Empresa" /></label>

@@ -476,7 +476,7 @@ body{font-size:17px}
 .teamTrack .person:nth-child(3){--portrait-width:74.95%}
 .teamTrack .person:nth-child(4){--portrait-width:100%}
 .teamTrack .person:nth-child(5){--portrait-width:96.02%}
-.teamTrack .portraitPhoto{right:auto!important;left:50%!important;width:var(--portrait-width)!important;height:100%!important;box-sizing:border-box;padding:0;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:grayscale(1)}
+.teamTrack .portraitPhoto{position:absolute;right:auto;bottom:0;left:50%;width:var(--portrait-width);height:100%;box-sizing:border-box;padding:0;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:grayscale(1)}
 .teamTrack .person h3{font-size:clamp(11px,1.35vw,20px)}
 .teamTrack .person p{font-size:clamp(8px,.85vw,13px);overflow-wrap:anywhere}
 

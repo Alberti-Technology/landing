@@ -26,7 +26,7 @@ export default function TeamSlider() {
             <article className="person" key={person.name}>
               <div className={`portrait${person.photo ? " portraitWithPhoto" : ""}`}>
                 {person.photo
-                  ? <img className="portraitPhoto" src={person.photo} alt={`Retrato de ${person.name}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  ? <img className="portraitPhoto" src={person.photo} alt={`Retrato de ${person.name}`} />
                   : <span>{person.initials}</span>}
                 {!person.photo && <div className="personGrid" />}
                 <small>0{ i+1 }</small>
