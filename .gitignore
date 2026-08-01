@@ -24,5 +24,6 @@ Thumbs.db
 .vercel
 .env*
 
-# Large media served from Vercel Blob
+# Original source video; the optimized web version lives in public/.
 /escenas-trabajando.mp4
+

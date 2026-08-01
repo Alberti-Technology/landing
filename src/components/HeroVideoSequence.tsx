@@ -1,25 +1,9 @@
-import { useCallback, useRef, useState } from "react";
-
-const MIN_BUFFER_SECONDS = 18;
+import { useRef, useState } from "react";
 
 export default function HeroVideoSequence() {
   const scenesRef = useRef<HTMLVideoElement>(null);
   const dashboardRef = useRef<HTMLVideoElement>(null);
   const [showDashboard, setShowDashboard] = useState(true);
-
-  const hasEnoughBuffer = useCallback((video: HTMLVideoElement) => {
-    for (let index = 0; index < video.buffered.length; index += 1) {
-      const start = video.buffered.start(index);
-      const end = video.buffered.end(index);
-
-      if (video.currentTime >= start && video.currentTime <= end) {
-        const remainingDuration = Math.max(0, video.duration - video.currentTime);
-        return end - video.currentTime >= Math.min(MIN_BUFFER_SECONDS, remainingDuration);
-      }
-    }
-
-    return false;
-  }, []);
 
   const startDashboard = () => {
     const dashboard = dashboardRef.current;
@@ -29,21 +13,12 @@ export default function HeroVideoSequence() {
     setShowDashboard(true);
   };
 
-  const playScenesWhenReady = () => {
+  const restartScenes = () => {
     const scenes = scenesRef.current;
-    const dashboard = dashboardRef.current;
-    if (!scenes || !dashboard) return;
-
-    if (!hasEnoughBuffer(scenes)) {
-      dashboard.currentTime = 0;
-      void dashboard.play();
-      return;
-    }
-
-    void scenes.play().then(() => setShowDashboard(false)).catch(() => {
-      dashboard.currentTime = 0;
-      void dashboard.play();
-    });
+    if (!scenes) return;
+    scenes.currentTime = 0;
+    void scenes.play();
+    setShowDashboard(false);
   };
 
   return (
@@ -56,8 +31,6 @@ export default function HeroVideoSequence() {
         playsInline
         preload="auto"
         onEnded={startDashboard}
-        onWaiting={startDashboard}
-        onStalled={startDashboard}
       />
       <video
         ref={dashboardRef}
@@ -67,7 +40,7 @@ export default function HeroVideoSequence() {
         muted
         playsInline
         preload="auto"
-        onEnded={playScenesWhenReady}
+        onEnded={restartScenes}
       />
       <div className={`dashboardMessage ${showDashboard ? "dashboardMessageVisible" : ""}`}>
         <span>MONITOREO EN TIEMPO REAL</span>
