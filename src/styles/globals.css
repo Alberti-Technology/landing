@@ -556,3 +556,85 @@ body,button,input,textarea{font-family:'Geist Variable', sans-serif}
   .heroGrid{background-size:32px 32px,59px 59px,64px 64px,64px 64px}
 }
 @media(prefers-reduced-motion:reduce){.heroGrid,.hero:before{animation:none}}
+
+/* Responsive safety layer --------------------------------------------------
+   Keeps the editorial layout fluid and prevents long copy from colliding. */
+html{overflow-x:clip}
+body{min-width:320px}
+main,section,article,div,form,nav,footer{min-width:0}
+img,video,iframe,svg{max-width:100%}
+h1,h2,h3,h4,p,li,a,button,span{overflow-wrap:break-word}
+h1,h2,h3,h4{text-wrap:balance}
+p{text-wrap:pretty}
+.sectionIntro>*,.stageHeader>*,.metallurgyBody>*,.videoFeature>*,.industries>*,.partners>*,.about>*,.contact>*,.footerMain>*{min-width:0}
+
+/* The full navigation only fits comfortably on wide desktop screens. */
+@media(max-width:1100px){
+  .nav{height:70px;padding-inline:clamp(18px,3.5vw,32px)}
+  .scrolled .nav{height:64px}
+  .menuButton{display:flex;width:44px;height:44px;background:none;border:0;flex-direction:column;align-items:flex-end;justify-content:center;gap:5px;flex:0 0 44px}
+  .menuButton i{width:22px;height:1px;background:currentColor}
+  .navLinks{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:10px clamp(18px,3.5vw,32px) 22px;background:rgba(4,37,59,.98);border-top:1px solid rgba(255,255,255,.12);box-shadow:0 20px 35px rgba(0,0,0,.22)}
+  .navLinks.open{display:flex}
+  .navLinks button{min-height:48px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1);white-space:normal}
+  .navLinks .navCta{margin-top:14px;text-align:center}
+  body:not(.scrolled) .menuButton{color:var(--navy)}
+  body:not(.scrolled) .navLinks.open button{color:var(--navy)}
+  body:not(.scrolled) .navLinks.open{background:rgba(255,255,255,.98)}
+}
+
+@media(max-width:900px){
+  .hero{height:auto;min-height:0;grid-template-columns:minmax(0,1fr);align-items:start;padding:clamp(108px,15vw,135px) clamp(22px,5vw,46px) 72px;gap:42px}
+  .hero .heroCopy{grid-column:1}
+  .hero h1{font-size:clamp(46px,9vw,74px);line-height:1.02}
+  .hero .heroVisual{width:100%;max-width:760px;margin:0;padding:0}
+  .hero .heroVisual .videoFrame{width:100%;mask-image:none;-webkit-mask-image:none}
+  .heroLocation{position:static;margin-top:-12px}
+  .sectionIntro,.stageHeader,.metallurgyBody,.videoFeature,.industries,.partners,.about,.contact{grid-template-columns:minmax(0,1fr)}
+  .sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2,.benefits .sectionIntro h2{font-size:clamp(42px,7.5vw,62px)}
+  .solutionGrid{grid-template-columns:minmax(0,1fr)}
+  .solutionCard{min-height:0}
+  .solutionCard button{position:relative;left:auto;bottom:auto;margin-top:28px}
+  .visionFeatureGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .benefitGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footerMain{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:600px){
+  .brand{gap:8px;max-width:calc(100% - 52px)}
+  .brand .brandLogo{width:34px;height:42px;flex-basis:34px}
+  .brand span{font-size:16px}
+  .hero{padding-inline:18px;padding-bottom:56px}
+  .hero h1{font-size:clamp(39px,12vw,52px);letter-spacing:-.055em}
+  .hero .eyebrow{width:auto;max-width:100%;font-size:12px;letter-spacing:.1em}
+  .hero p{font-size:clamp(18px,5.6vw,22px)}
+  .hero .heroIdentity{font-size:14px}
+  .heroActions{width:100%}
+  .heroActions .primary{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left}
+  .hero .heroVisual{display:none}
+  .section,.process,.industries,.partners,.team,.contact{padding-inline:18px}
+  .sectionIntro h2,.process h2,.industryTitle h2,.partnerCopy h2,.teamHead h2,.contact h2,.aboutLead h2,.benefits .sectionIntro h2{font-size:clamp(34px,10.5vw,44px);line-height:1.05}
+  .sectionIntro>p,.stageHeader>p,.industryTitle>p,.partnerCopy>p,.contactCopy>p,.aboutBody>p{font-size:17px}
+  .solutionDetails{margin-inline:-18px}
+  .solutionCard{padding:32px 22px}
+  .solutionCard h3{font-size:clamp(32px,10vw,39px)}
+  .solutionCard ul,.visionFeatureGrid,.benefitGrid,.industryGrid,.astmGrid,.aboutStats{grid-template-columns:minmax(0,1fr)}
+  .visionStage,.metallurgyStage{padding-inline:18px}
+  .stageHeader h3{font-size:clamp(33px,10vw,40px)}
+  .videoFeature{padding-inline:18px}
+  .partnerLogos article{grid-template-columns:72px minmax(0,1fr);gap:16px}
+  .partnerLogos h3{font-size:19px}
+  .aboutStats div{padding-right:0}
+  .teamTrack{grid-template-columns:minmax(0,1fr)}
+  .contact input,.contact textarea{min-width:0}
+  .footerMain{grid-template-columns:minmax(0,1fr)}
+  .footerBrand span{font-size:17px}
+}
+
+@media(max-width:380px){
+  .brand span{font-size:14px}
+  .hero h1{font-size:38px}
+  .hero .eyebrow span{display:none}
+  .solutionCard,.visionFeatureGrid article,.benefitGrid article{padding-inline:18px}
+  .partnerLogos article{grid-template-columns:minmax(0,1fr)}
+}
