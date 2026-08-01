@@ -51,7 +51,7 @@ export default function HeroVideoSequence() {
       <video
         ref={scenesRef}
         className={`heroVideo heroVideoPrimary ${showDashboard ? "videoHidden" : "videoVisible"}`}
-        src="https://amidffq0oo1tgbqr.public.blob.vercel-storage.com/videos/escenas-trabajando.mp4"
+        src="/escenas-trabajando-web.mp4"
         muted
         playsInline
         preload="auto"
