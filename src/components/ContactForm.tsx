@@ -6,7 +6,7 @@ export default function ContactForm() {
   return (
     <section className="contact" id="contacto">
       <div className="contactCopy">
-        <span className="index">08 — CONTACTO</span>
+        <span className="index">07 — CONTACTO</span>
         <h2>Su proceso ya genera datos.<br /><em>Empecemos a usarlos.</em></h2>
         <p>Cuéntenos qué necesita medir, controlar o automatizar. Diseñamos una prueba de concepto sobre su operación real.</p>
         <a href="mailto:albertifranco97@gmail.com">albertifranco97@gmail.com ↗</a>

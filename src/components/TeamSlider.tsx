@@ -14,7 +14,7 @@ export default function TeamSlider() {
   return (
     <section className="team section">
       <div className="teamHead">
-        <div><span className="index">07 — NUESTRO EQUIPO</span><h2>Personas detrás<br /><em>de la tecnología.</em></h2></div>
+        <div><span className="index">06 — NUESTRO EQUIPO</span><h2>Personas detrás<br /><em>de la tecnología.</em></h2></div>
         <div className="sliderControls">
           <button onClick={() => setSlide(Math.max(0, slide-1))} aria-label="Integrantes anteriores">←</button>
           <button onClick={() => setSlide(Math.min(team.length-2, slide+1))} aria-label="Integrantes siguientes">→</button>
