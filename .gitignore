@@ -21,3 +21,8 @@ bun.lockb
 .Trashes
 ehthumbs.db
 Thumbs.db
+.vercel
+.env*
+
+# Large media served from Vercel Blob
+/escenas-trabajando.mp4
