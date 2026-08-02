@@ -468,14 +468,13 @@ body{font-size:17px}
 
 /* Show the complete team at once and keep every silhouette safely inside its circle. */
 .team .sliderControls{display:none}
-.teamTrack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(6px,1.2vw,20px);transform:none!important}
+.teamTrack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,36px);transform:none!important}
 .teamTrack .person{min-width:0;flex:none;text-align:center}
 .teamTrack .portraitWithPhoto{width:min(100%,230px)}
 .teamTrack .person:nth-child(1){--portrait-width:75.24%}
-.teamTrack .person:nth-child(2){--portrait-width:100%}
-.teamTrack .person:nth-child(3){--portrait-width:74.95%}
-.teamTrack .person:nth-child(4){--portrait-width:100%}
-.teamTrack .person:nth-child(5){--portrait-width:96.02%}
+.teamTrack .person:nth-child(2){--portrait-width:74.95%}
+.teamTrack .person:nth-child(3){--portrait-width:100%}
+.teamTrack .person:nth-child(4){--portrait-width:96.02%}
 .teamTrack .portraitPhoto{position:absolute;right:auto;bottom:0;left:50%;width:var(--portrait-width);height:100%;box-sizing:border-box;padding:0;transform:translateX(-50%);object-fit:contain;object-position:center bottom;filter:grayscale(1)}
 .teamTrack .person h3{font-size:clamp(11px,1.35vw,20px)}
 .teamTrack .person p{font-size:clamp(8px,.85vw,13px);overflow-wrap:anywhere}

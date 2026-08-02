@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const team = [
   { name: "Franco Alberti", role: "Ingeniería & IA", initials: "FA", photo: "/franco_sin_fondo.svg" },
-  { name: "Diego Martucho", role: "Software & Hardware", initials: "DM", photo: "/diego_sin_fondo.svg" },
   { name: "Alejo Petitti", role: "Ingeniería & Metalurgia", initials: "AP", photo: "/alejo_sin_fondo.svg" },
   { name: "Mariano Carri", role: "Ingeniería & Inventario", initials: "MC", photo: "/mariano_sin_fondo.svg" },
   { name: "Giuliana Reginatto", role: "Diseño & Community Manager", initials: "GR", photo: "/giuli_sin_fondo.svg" },
