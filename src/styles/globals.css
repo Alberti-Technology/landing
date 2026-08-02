@@ -557,6 +557,13 @@ body,button,input,textarea{font-family:'Geist Variable', sans-serif}
 }
 @media(prefers-reduced-motion:reduce){.heroGrid,.hero:before{animation:none}}
 
+/* Let the hero grow when its copy is taller than the viewport. This keeps the
+   calls to action in normal flow instead of letting the proof strip cover them. */
+.hero{height:auto;min-height:max(760px,100svh)}
+
+.footerLocation{display:inline-flex;align-items:center;gap:10px}
+.footerLocation img{width:32px;height:21px;object-fit:cover;border:1px solid rgba(255,255,255,.24);box-shadow:0 4px 12px rgba(0,0,0,.22)}
+
 /* Responsive safety layer --------------------------------------------------
    Keeps the editorial layout fluid and prevents long copy from colliding. */
 html{overflow-x:clip}
